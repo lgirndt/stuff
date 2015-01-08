@@ -1,0 +1,41 @@
+<!HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+  <style>
+  div {
+    font-family: 'Nunito', sans-serif;
+  }
+  #sum {
+    font-size: 5em;
+    text-align: center;
+  }
+  #week {
+    font-size: 3em;
+    text-align: center;
+  }
+  </style>
+  <body>
+    <div id="sum"></div>
+    <div id="week"></div>
+
+    <script language="javascript">
+    $(function(){
+      var today = new Date();
+      var firstDay = new Date(2014,09,09);
+      var mil = Math.floor(today - firstDay);
+      var weekBasis = mil / (1000*7*24*60*60);
+      var weekRest = weekBasis - Math.floor(weekBasis);
+      var weeks = weekBasis - weekRest;
+      var daysBasis = weekRest * 7;
+      var days = daysBasis - (daysBasis - Math.floor(daysBasis));
+
+      $('#sum').text(weeks + " + " + days);
+      $('#week').text((weeks + 1) + " Woche");
+    });
+    </script>
+  </body>
+</html>
