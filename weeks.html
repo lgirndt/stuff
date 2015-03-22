@@ -17,10 +17,15 @@
     font-size: 3em;
     text-align: center;
   }
+  #month {
+    font-size: 4em;
+    text-align: center;
+  }
   </style>
   <body>
     <div id="sum"></div>
     <div id="week"></div>
+    <div id="month"></div>
 
     <script language="javascript">
     $(function(){
@@ -32,9 +37,11 @@
       var weeks = weekBasis - weekRest;
       var daysBasis = weekRest * 7;
       var days = daysBasis - (daysBasis - Math.floor(daysBasis));
+      var month = Math.floor(weeks/4);
 
       $('#sum').text(weeks + " + " + days);
       $('#week').text((weeks + 1) + ". Woche");
+      $('#month').text((month + 1) + ". Monat");
     });
     </script>
   </body>
