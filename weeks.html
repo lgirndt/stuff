@@ -21,16 +21,22 @@
     font-size: 3em;
     text-align: center;
   }
+  #days_left {
+    font-size: 2em;
+    text-align: center;
+  }
   </style>
   <body>
     <div id="sum"></div>
     <div id="week"></div>
     <div id="month"></div>
+    <div id="days_left"></div>
 
     <script language="javascript">
     $(function(){
       var today = new Date();
       var firstDay = new Date(2014,09,09);
+      var lastDay = new Date(2015,06,16);
       var mil = Math.floor(today - firstDay);
       var weekBasis = mil / (1000*7*24*60*60);
       var weekRest = weekBasis - Math.floor(weekBasis);
@@ -39,9 +45,13 @@
       var days = daysBasis - (daysBasis - Math.floor(daysBasis));
       var month = Math.floor(weeks/4);
 
+      var milLeft = Math.floor(lastDay - today);
+      var daysLeft = Math.floor(milLeft / (1000 * 60 * 60 * 24)) 
+
       $('#sum').text(weeks + " + " + days);
       $('#week').text((weeks + 1) + ". Woche");
       $('#month').text((month + 1) + ". Monat");
+      $('#days_left').text("Noch " + daysLeft + " Tage");
     });
     </script>
   </body>
